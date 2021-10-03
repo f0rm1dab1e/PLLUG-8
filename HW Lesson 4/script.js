@@ -1,3 +1,5 @@
+// Частина 1
+
 // Створити функцію яка б отримувала параметром масив з елементів різних типів (строки, масиви, числа, об’єкти і т.д),
 // на виході має повернути строку у camel case (приклад строки у camel case: thisIsExampleOfTheCamelCase),
 // яка б поєднувала в собі всі елементи масиву які є строками.
@@ -35,3 +37,52 @@ function createNumObj(obj) {
 }
 
 console.log(createNumObj(obj));
+
+
+// Частина 2
+
+// Скрипт який виводить в консоль дату і час коли DOM побудований, але css, зображення ще не завантажились.
+
+document.addEventListener("DOMContentLoaded", function () {
+   console.log(Date());
+});
+
+// Скрипт який виводить в консоль дату і час коли DOM побудований і css, зображення вже завантажились.
+
+window.addEventListener("load", function () {
+   console.log(Date());
+});
+
+// Скрипт який виводить в консоль дату і час коли юзер натиснув на закрити вкладку або перезавантажити сторінку.
+
+window.addEventListener("beforeunload", function () {
+   console.log(Date());
+});
+
+// Скрипт який виводить повертає назву браузера та назву операційної системи через дефіс "-" як одну строку.
+
+console.log(navigator.appCodeName + " - " + navigator.platform);
+
+// Скрипт який змушує браузер показувати сповіщення, коли ви намагаєтесь перезавантажити сторінку,
+// видалити вкладку, чи вимкнути браузер.
+
+window.addEventListener("beforeunload", function (e) {
+   let message = "Do you want leave?";
+   (e || window.event).returnValue = message;
+   return message;
+});
+
+// Скрипт який виводить в консоль скільки секунд юзер перебував на сторінці,
+// після того як юзер натиснув на закрити вкладку або перезавантажити сторінку.
+
+let startPoint = new Date();
+let finishPoint = new Date();
+
+window.onload = function () {
+   startPoint = new Date();
+}
+
+window.onbeforeunload = function () {
+   finishPoint = new Date();
+   return console.log((finishPoint.getTime() - startPoint.getTime()) / 1000);
+}
