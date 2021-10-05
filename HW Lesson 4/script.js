@@ -19,6 +19,7 @@ console.log(createCamelCase(arr));
 // Приклад [4, 3, 22, 11] - в результаті маємо отримати [d, c, v, k].
 
 const arr = [10, 1, 22, 1, 19, 3, 18, 9, 16, 20];
+//два рази оголошується змінна з однаковою назвою. Юзай 'use strict' щоб уникати такого
 
 function transformNumToChar(arr) {
    return arr.map(i => String.fromCharCode(i + 96));
@@ -70,6 +71,8 @@ window.onbeforeunload = function() {
    return false;
 };
 
+//діалогове вікно не з'являється
+
 // Скрипт який виводить в консоль скільки секунд юзер перебував на сторінці,
 // після того як юзер натиснув на закрити вкладку або перезавантажити сторінку.
 
@@ -81,3 +84,8 @@ window.onbeforeunload = function() {
    finishPoint = new Date();
    return console.log((finishPoint.getTime() - startPoint.getTime()) / 1000);
 }
+
+
+
+// в загальному гуд, прохання на майбутнє - створюй додатково html файл і підключай скрипт в нього
+// щоб було зручно перевіряти, зразу запустивши твій код в браузері
