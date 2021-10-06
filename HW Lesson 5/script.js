@@ -61,3 +61,14 @@ function addBirdAppend() {
 }
 
 addBirdAppend();
+
+// Функція яка додає додає новий список id="fish" перед списком birds;
+
+function addNewUl() {
+   const animals = document.querySelector("#animals");
+   const newUl = document.createElement("ul");
+   newUl.id = "fish";
+   animals.after(newUl);
+}
+
+addNewUl();
