@@ -32,3 +32,6 @@ textarea.oninput = function (e) {
       textarea.classList.remove("is-invalid");
    }
 }
+
+// завдання зроблене не повністю, 
+// перевірки на символи не працюють так, як вказано в завданні
