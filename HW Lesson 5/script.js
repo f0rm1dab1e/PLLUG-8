@@ -28,6 +28,7 @@ changeBackgroundColor();
 
 function changeTextColor() {
    document.querySelector(".dangerous").style.color = "red";
+   //мало бути querySelectorAll, а потім пройтися по отриманому масиву як в наступній функції
 }
 
 changeTextColor();
@@ -70,5 +71,8 @@ function addNewUl() {
    newUl.id = "fish";
    animals.after(newUl);
 }
+
+//ти вставляєш список не перед birds, а після animals. В нашому прикладі результат буде однаковий,
+//але якщо раптом між ними буде якийсь інший елемент - ні
 
 addNewUl();
