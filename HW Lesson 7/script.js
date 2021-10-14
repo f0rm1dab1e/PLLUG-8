@@ -22,46 +22,78 @@ for (let i = 0; i < n; i++) {
 // Add
 
 console.time("Add obj");
-obj["key"] = "value";
+obj[n];
 console.timeEnd("Add obj");
 
 console.time("Add nullPrototypeObj");
-nullPrototypeObj["key"] = "value";
+nullPrototypeObj[n];
 console.timeEnd("Add nullPrototypeObj");
 
 console.time("Add map");
-map.set("key", "value");
+map.set(n);
 console.timeEnd("Add map");
 
 // Find
 
-let result;
+let result1;
 
 console.time("Take obj");
-result = obj["key"];
+result1 = obj["key"];
 console.timeEnd("Take obj");
 
 console.time("Take nullPrototypeObj");
-result = nullPrototypeObj["key"];
+result1 = nullPrototypeObj["key"];
 console.timeEnd("Take nullPrototypeObj");
 
 console.time("Take map");
-map.get("key");
+result1 = map.get("key");
 console.timeEnd("Take map");
 
 // Delete
 
 console.time("Delete obj");
-delete obj["key"];
+delete obj[n];
 console.timeEnd("Delete obj");
 
 console.time("Delete nullPrototypeObj");
-delete nullPrototypeObj["key"];
+delete nullPrototypeObj[n];
 console.timeEnd("Delete nullPrototypeObj");
 
 console.time("Delete map");
-map.delete("key");
+map.delete(n);
 console.timeEnd("Delete map");
+
+// Transform to arr
+
+let result2;
+
+console.time("Transform obj to arr");
+result2 = Object.entries(obj);
+console.timeEnd("Transform obj to arr");
+
+console.time("Transform nullPrototypeObj to arr");
+result2 = Object.entries(nullPrototypeObj);
+console.timeEnd("Transform nullPrototypeObj to arr");
+
+console.time("Transform map to obj");
+result2 = Array.from(map);
+console.timeEnd("Transform map to obj");
+
+// Transform to arr and iteration
+
+let result3;
+
+console.time("Transform obj to arr and iteration");
+result3 = Object.entries(obj).forEach(([key, value]) => key = value);
+console.timeEnd("Transform obj to arr and iteration");
+
+console.time("Transform nullPrototypeObj to arr and iteration");
+result3 = Object.entries(nullPrototypeObj).forEach(([key, value]) => key = value);
+console.timeEnd("Transform nullPrototypeObj to arr and iteration");
+
+console.time("Transform map to obj and iteration");
+result3 = Array.from(map).forEach(([key, value]) => key = value);
+console.timeEnd("Transform map to obj and iteration");
 
 // Написати функцію, яка приймає об’єкт у якості аргументу та повертає Map з тими самими даними.
 // Тобто просто перетворити об’єкт у Map.
