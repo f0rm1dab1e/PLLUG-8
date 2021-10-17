@@ -116,8 +116,12 @@ body {
 }
 
 .href-text {
-   padding-top: 24px;
+   text-align: right;
    color: black;
+}
+
+.sign-up {
+   padding-top: 24px;
 }
 
 @media (max-width: 1199px) {
