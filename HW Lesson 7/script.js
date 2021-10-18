@@ -79,7 +79,7 @@ console.time("Transform map to obj");
 result2 = Array.from(map);
 console.timeEnd("Transform map to obj");
 
-// Transform to arr and iteration
+// Transform to arr and iteration (forEach)
 
 let result3;
 
@@ -91,9 +91,31 @@ console.time("Transform nullPrototypeObj to arr and iteration");
 result3 = Object.entries(nullPrototypeObj).forEach(([key, value]) => key = value);
 console.timeEnd("Transform nullPrototypeObj to arr and iteration");
 
-console.time("Transform map to obj and iteration");
+console.time("Transform map to arr and iteration");
 result3 = Array.from(map).forEach(([key, value]) => key = value);
-console.timeEnd("Transform map to obj and iteration");
+console.timeEnd("Transform map to arr and iteration");
+
+// Iteration (for...in)
+
+let result4;
+
+console.time("Iteration for...in obj");
+for (let key in obj) {
+   result4 = key;
+}
+console.timeEnd("Iteration for...in obj");
+
+console.time("Iteration for...in nullPrototypeObj");
+for (let key in nullPrototypeObj) {
+   result4 = key;
+}
+console.timeEnd("Iteration for...in nullPrototypeObj");
+
+console.time("Iteration for...in map");
+for (let key in map.keys()) {
+   result4 = key;
+}
+console.timeEnd("Iteration for...in map");
 
 // Написати функцію, яка приймає об’єкт у якості аргументу та повертає Map з тими самими даними.
 // Тобто просто перетворити об’єкт у Map.
