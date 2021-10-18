@@ -12,7 +12,9 @@ const map = new Map();
 const n = 100;
 // const n = 10000;
 // const n = 10000000;
-
+/**
+ * Заміри продуктивності слід проводити окремо для звичайного об'єкта, об'єкта без прототипу та Map. У вас всі способи в одному циклі, відповідно час ми отримаємо загальний для всіх трьох разом.
+ */
 for (let i = 0; i < n; i++) {
    obj[i];
    nullPrototypeObj[i];
@@ -122,6 +124,9 @@ console.timeEnd("Iteration for...in map");
 
 const newObj = { key: "value" };
 
+/**
+ * Добре.
+ */
 function transformObjToMap(newObj) {
    return new Map(Object.entries(newObj));
 }
@@ -130,10 +135,12 @@ console.log(transformObjToMap(newObj));
 
 // Написати функцію, яка приймає Map у якості аргументу та повертає об’єкт з тими самими даними.
 // Тобто просто перетворити Map у  об’єкт.
-
 const newMap = new Map();
 newMap.set("key", "value");
 
+/**
+ * Добре.
+ */
 function transformMapToObj(newMap) {
    return Object.fromEntries(newMap.entries());
 }
