@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 * {
    padding: 0;
    margin: 0;
@@ -7,13 +9,13 @@
 body {
    height: 100vh;
    display: flex;
+   font-family: Roboto, sans-serif;
 }
 
 .game {
    width: 640px;
    height: 640px;
    margin: auto;
-   display: flex;
    flex-wrap: wrap;
    perspective: 1000px;
 }
@@ -51,4 +53,69 @@ body {
 
 .front-side {
    transform: rotateY(180deg);
+}
+
+.hide {
+   visibility: hidden;
+}
+
+.game {
+   display: none;
+}
+
+.form-block {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   margin: auto;
+}
+
+.name-label {
+   text-align: left;
+   font-size: 30px;
+   color: #8D8DA5;
+   padding-bottom: 40px;
+}
+
+.name-input {
+   height: 50px;
+   padding: 5px;
+   margin-bottom: 30px;
+   border-radius: 8px;
+   border: 1px solid #DBDFEB
+}
+
+.button-block {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   text-align: center;
+   align-items: center;
+}
+
+.button {
+   width: 170px;
+   height: 50px;
+   margin-top: 20px;
+   text-decoration: none;
+   color: white;
+   background-color: #E2222D;
+   border-radius: 10px;
+   border: none;
+   cursor: pointer;
+   transition: all ease 0.5s;
+}
+
+button:hover {
+   background: rgba(0, 0, 0, 0);
+   color: #E2222D;
+   box-shadow: inset 0 0 0 1px #E2222D;
+   transform: scale(1.1);
+}
+
+.score {
+   display: none;
+   position: absolute;
+   font-size: 50px;
+   margin: 50px;
 }
