@@ -6,22 +6,35 @@ const formBlock = document.querySelector(".form-block");
 const nameInput = document.querySelector(".name-input");
 const btn = document.querySelector(".button");
 const scoreAll = document.querySelector(".score");
+const result = document.querySelector(".result-block");
+let numberOfCards = document.getElementsByClassName("game-card flip hide");
+const nameItem = document.querySelector(".name-item");
+const scoreItem = document.querySelector(".score-item");
+const timeItem = document.querySelector(".time-item");
+
 
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 let score = 0;
 let userName = "";
+let time = 0;
+let endTime;
 
 btn.addEventListener("click", (event) => {
    event.preventDefault();
    if (nameInput.value.replace(/\s/g, "").length <= 0) {
    } else {
+      endTime = setInterval(startTime, 1000);
       game.style.display = "flex";
       scoreAll.style.display = "inline"
       formBlock.style.display = "none";
    }
 });
+
+function startTime() {
+   time++;
+}
 
 nameInput.oninput = () => {
    userName = nameInput.value;
@@ -46,13 +59,18 @@ function flipCard() {
    checkForMatch();
 }
 
+function checkScore() {
+   score++;
+   scoreAll.innerHTML = `${score}`;
+   scoreItem.innerHTML = `${score}`;
+}
+
 function checkForMatch() {
    let isMatch = firstCard.dataset.personage === secondCard.dataset.personage;
 
    isMatch ? disableCards() : unflipCards();
 
-   score++;
-   scoreAll.innerHTML = `Score: ${score}`;
+   checkScore();
 }
 
 function disableCards() {
@@ -61,7 +79,7 @@ function disableCards() {
       secondCard.classList.add("hide");
 
       resetBoard();
-   }, 1000);
+   }, 800);
 }
 
 function unflipCards() {
@@ -72,15 +90,28 @@ function unflipCards() {
       secondCard.classList.remove("flip");
 
       resetBoard();
-   }, 1500);
+   }, 800);
 }
 
 function resetBoard() {
    [hasFlippedCard, lockBoard] = [false, false];
    [firstCard, secondCard] = [null, null];
+   showResult();
 }
 
 cards.forEach(card => card.addEventListener("click", flipCard));
+
+function showResult() {
+   if (numberOfCards.length == 16) {
+      scoreAll.style.display = "none";
+      game.style.display = "none";
+      result.style.display = "flex";
+      clearInterval(endTime);
+
+      nameItem.innerHTML = `${userName}`;
+      timeItem.innerHTML = `${time}`;
+   }
+}
 
 (function shuffle() {
    cards.forEach(card => {
