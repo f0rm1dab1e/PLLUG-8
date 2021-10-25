@@ -7,11 +7,13 @@ const nameInput = document.querySelector(".name-input");
 const btn = document.querySelector(".button");
 const scoreAll = document.querySelector(".score");
 const result = document.querySelector(".result-block");
-let numberOfCards = document.getElementsByClassName("game-card flip hide");
+const numberOfCards = document.getElementsByClassName("game-card flip hide");
 const nameItem = document.querySelector(".name-item");
 const scoreItem = document.querySelector(".score-item");
 const timeItem = document.querySelector(".time-item");
-
+const modalLike = document.querySelector(".modal-like");
+const modalDislike = document.querySelector(".modal-dislike");
+const modalCloseBtn = document.querySelectorAll('[data-close]');
 
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -78,6 +80,7 @@ function disableCards() {
       firstCard.classList.add("hide");
       secondCard.classList.add("hide");
 
+      showModal();
       resetBoard();
    }, 800);
 }
@@ -89,6 +92,7 @@ function unflipCards() {
       firstCard.classList.remove("flip");
       secondCard.classList.remove("flip");
 
+      showModal();
       resetBoard();
    }, 800);
 }
@@ -112,6 +116,21 @@ function showResult() {
       timeItem.innerHTML = `${time}`;
    }
 }
+
+function showModal() {
+   if (firstCard.dataset.personage === secondCard.dataset.personage) {
+      modalLike.style.display = "block";
+   } else {
+      modalDislike.style.display = "block";
+   }
+}
+
+function closeModal() {
+   modalLike.style.display = "none";
+   modalDislike.style.display = "none";
+}
+
+modalCloseBtn.forEach(modal => modal.addEventListener('click', closeModal));
 
 (function shuffle() {
    cards.forEach(card => {
