@@ -11,9 +11,16 @@
 
 <body>
 
-   <input class="file-input" type="file" multiple>
+   <div id="drop-area">
+      <form class="my-form">
+         <p>Upload or drag multiple files</p>
+         <input type="file" id="file" multiple accept="image/*">
+         <label class="button" for="file">Select files</label>
+      </form>
+   </div>
+   <div class="hidden" id="gallery"></div>
 
-   <script srs="script.js"></script>
+   <script src="script.js"></script>
 </body>
 
 </html>
