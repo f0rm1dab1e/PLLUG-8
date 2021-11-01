@@ -19,7 +19,6 @@
    border: 2px solid #1c8856;
    border-radius: 20px;
    max-width: 1200px;
-   min-height: 300px;
    font-family: sans-serif;
    margin: 100px auto;
    padding: 20px;
@@ -59,4 +58,14 @@
    cursor: pointer;
    position: absolute;
    margin-left: 125px;
+}
+
+@media (max-width: 767px) {
+   #drop-area {
+      height: 300px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+   }
 }

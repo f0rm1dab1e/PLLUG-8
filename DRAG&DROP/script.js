@@ -21,33 +21,40 @@ fileInput.addEventListener("change", ({ target: { files } }) => {
 });
 
 function uploadFile(file) {
-   if (file) {
-      const imgWrapper = document.createElement("DIV");
-      const img = document.createElement("IMG");
-      const removeBtn = document.createElement("IMG");
+   const imgWrapper = document.createElement("DIV");
+   const img = document.createElement("IMG");
+   const removeBtn = document.createElement("IMG");
 
-      imgWrapper.appendChild(removeBtn);
-      removeBtn.src = "img/trash.svg";
-      imgWrapper.appendChild(img);
+   imgWrapper.appendChild(removeBtn);
+   removeBtn.src = "img/trash.svg";
+   imgWrapper.appendChild(img);
 
-      removeBtn.classList.add("remove-btn");
-      removeBtn.addEventListener("click", (event) => {
-         event.target.parentNode.remove();
-      });
-
-      img.src = URL.createObjectURL(file);
-      img.classList.add("thumbnail");
-      imgWrapper.classList.add("img-wrapper");
-
-      gallery.appendChild(imgWrapper);
-
-
+   removeBtn.classList.add("remove-btn");
+   removeBtn.addEventListener("click", (event) => {
+      event.target.parentNode.remove();
       checkGallery();
+   });
+
+   img.src = URL.createObjectURL(file);
+   img.classList.add("thumbnail");
+   imgWrapper.classList.add("img-wrapper");
+   imgWrapper.setAttribute("draggable", true);
+
+   gallery.appendChild(imgWrapper);
+
+   if (file.type == "text/plain") {
+      img.src = "img/txt.png"
+   } else if (file.type == "text/csv") {
+      img.src = "img/csv.png"
    }
+
+   checkGallery();
 }
 
 function checkGallery() {
-   if (galleryFile) {
+   if (galleryFile.length > 0) {
       gallery.style.display = "flex";
+   } else {
+      gallery.style.display = "none";
    }
 }
