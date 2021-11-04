@@ -66,6 +66,14 @@
    cursor: pointer;
 }
 
+
+.pause {
+   content: url("img/play.svg");
+}
+.play {
+   content: url("img/pause.svg");
+}
+
 .task-time, .play-pause {
    padding-right: 10px;
 }
