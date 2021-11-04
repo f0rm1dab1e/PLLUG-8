@@ -52,10 +52,10 @@
 
 .task-item {
    display: flex;
-   justify-content: space-between
+   justify-content: space-between;
 }
 
-.left-side {
+.right-side {
    display: flex;
    justify-content: flex-end;
 }
@@ -70,10 +70,12 @@
 .pause {
    content: url("img/play.svg");
 }
+
 .play {
    content: url("img/pause.svg");
 }
 
-.task-time, .play-pause {
+.task-time,
+.play-pause {
    padding-right: 10px;
 }
