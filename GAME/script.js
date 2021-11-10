@@ -138,3 +138,9 @@ modalCloseBtn.forEach(modal => modal.addEventListener('click', closeModal));
       card.style.order = ramdomPos;
    });
 })();
+
+if (navigator?.serviceWorker) {
+   window.addEventListener("load", () => {
+      navigator.serviceWorker.register("service-worker.js")
+   });
+}
