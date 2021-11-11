@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find on map</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1 id="page-title">Find what you need</h1>
+
+    <form id="page-form">
+
+        <div id="places-block">
+            <label for="places">Choose a place:</label>
+            <br>
+            <select id="places" name="places">
+                <option id="restaurant" value="restaurant" checked>Restaurant</option>
+                <option id="museum" value="museum">Museum</option>
+                <option id="hotel" value="hotel">Hotel</option>
+                <option id="cafe" value="cafe">Cafe</option>
+                <option id="mcdonalds" value="mcdonalds">McDonalds</option>
+            </select>
+        </div>
+
+        <div id="distance-block">
+            <label for="distance">Choose a distance:</label>
+            <br>
+            <input id="05-km" name="distance" type="radio" value="100" checked />
+            <label for="05-km">0.5 km</label>
+
+            <input id="1-km" name="distance" type="radio" value="1000" />
+            <label for="1-km">1 km</label>
+
+            <input id="5-km" name="distance" type="radio" value="5000" />
+            <label for="5-km">5 km</label>
+
+            <input id="10-km" name="distance" type="radio" value="10000" />
+            <label for="10-km">10 km</label>
+
+            <input id="20-km" name="distance" type="radio" value="20000" />
+            <label for="20-km">20 km</label>
+
+            <input id="50-km" name="distance" type="radio" value="50000" />
+            <label for="50-km">50 km</label>
+
+            <input id="100-km" name="distance" type="radio" value="1000000" />
+            <label for="100-km">100 km</label>
+        </div>
+
+        <div id="format-block">
+            <label for="format-block">Type response:</label>
+            <br>
+            <input id="map-format" name="format" type="radio" value="map" checked />
+            <label for="map-format">map</label>
+
+            <input id="csv-format" name="format" type="radio" value="csv" />
+            <label for="csv-format">csv</label>
+        </div>
+
+        <div id="btn-block">
+            <input id="form-btn" type="submit" value="Find">
+        </div>
+
+    </form>
+
+    <div id="map"></div>
+
+    <script src="script.js"></script>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMWuWWUtjcy4b0gA2zvhahOWRkw_lziNI&callback=initMap"></script>
+</body>
+
+</html>
